@@ -1,0 +1,19 @@
+---
+import Layout from "../layouts/Layout.astro";
+import About from "../components/about.astro";
+import Nav from "../components/nav.astro";
+---
+
+<Layout>
+  <section class="w-full md:w-1/2 flex items-center">
+    <div class="w-full bg-white/5 rounded-xl p-6 md:p-10 shadow-sm text-left">
+      <About />
+    </div>
+  </section>
+
+  <section class="w-full md:w-1/2 flex items-center justify-center">
+    <div class="w-full max-w-md">
+      <Nav />
+    </div>
+  </section>
+</Layout>

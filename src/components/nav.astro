@@ -1,0 +1,28 @@
+---
+import data from "../data/sitedata.json";
+import Navcards from "./navcards.astro";
+---
+<div class="container mx-auto px-4">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+    <div class="w-full">
+      <a href="/projects" aria-label="Projects" class="block">
+        <Navcards cardtitle="Projects" iconName="githubIcon" />
+      </a>
+    </div>
+    <div class="w-full">
+      <a href="/about" aria-label="About" class="block">
+        <Navcards cardtitle="About" iconName="githubIcon" />
+      </a>
+    </div>
+    <div class="w-full">
+      <a href="/blog" aria-label="Blog" class="block">
+        <Navcards cardtitle="Blog" iconName="githubIcon" />
+      </a>
+    </div>
+    <div class="w-full">
+      <a href="/contact" aria-label="Contact" class="block">
+        <Navcards cardtitle="Contact" iconName="githubIcon" />
+      </a>
+    </div>
+  </div>
+</div>

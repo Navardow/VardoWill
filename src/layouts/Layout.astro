@@ -1,0 +1,29 @@
+---
+import "../styles/global.css";
+import Header from "../components/header.astro";
+import Footer from "../components/footer.astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro Basics</title>
+  </head>
+  <body class="min-h-screen flex flex-col antialiased">
+    <Header />
+    <!--
+      Centralized page container + responsive spacing:
+      - Mobile-first: stacked columns
+      - md+: two-column layout with even spacing
+      - small horizontal padding to reduce side margins
+    -->
+    <main class="flex-1 flex flex-col md:flex-row items-stretch justify-between gap-6 my-4 w-full max-w-screen-lg mx-auto px-3 sm:px-4 py-8">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

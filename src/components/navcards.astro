@@ -1,0 +1,17 @@
+---
+import Icon from "./icon.astro";
+
+interface Props {
+    cardtitle: string;
+    iconName: keyof typeof import("../icons/index.ts");
+}
+
+const { cardtitle, iconName } = Astro.props as Props;
+---
+
+<div class="group nav-card border rounded-lg p-6 shadow transition duration-300 transform hover:-translate-y-1 hover:shadow-lg bg-white/5 hover:bg-indigo-600 text-indigo-600 hover:text-white flex flex-col items-center justify-center text-center">
+    <div class="icon mb-4 flex items-center justify-center">
+        <Icon name={iconName} size={48} color="currentColor" class="icon-svg" />
+    </div>
+    <h2 class="text-xl font-semibold">{cardtitle}</h2>
+</div>

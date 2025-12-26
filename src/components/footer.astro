@@ -1,0 +1,30 @@
+---
+import Icon from "./icon.astro";
+
+const year = new Date().getFullYear();
+---
+<footer class="w-full bg-transparent">
+  <div class="container mx-auto px-4 py-6">
+    <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
+      <a href="https://github.com" aria-label="GitHub" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <Icon name="githubIcon" size={20} color="#6B7280" />
+      </a>
+
+      <a href="#" aria-label="Social placeholder 2" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <Icon name="githubIcon" size={20} color="#6B7280" />
+      </a>
+
+      <a href="#" aria-label="Social placeholder 3" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <Icon name="githubIcon" size={20} color="#6B7280" />
+      </a>
+
+      <a href="#" aria-label="Social placeholder 4" class="text-gray-500 hover:text-gray-700 transition-colors">
+        <Icon name="githubIcon" size={20} color="#6B7280" />
+      </a>
+    </div>
+
+    <p class="mt-4 text-center text-xs text-gray-400">
+      © {year} Vardo. All rights reserved.
+    </p>
+  </div>
+</footer>
