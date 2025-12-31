@@ -1,28 +1,22 @@
 ---
-import data from "../data/sitedata.json";
 import Navcards from "./navcards.astro";
 ---
-<div class="container mx-auto px-4">
-  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
-    <div class="w-full">
-      <a href="/projects" aria-label="Projects" class="block">
-        <Navcards cardtitle="Projects" iconName="githubIcon" />
+<div class="w-full h-full">
+  <div class="grid grid-cols-2 gap-4 h-full items-center py-5">
+      <a href="/projects" class="block">
+        <Navcards cardtitle="Projects" iconName="folderIcon" />
       </a>
-    </div>
-    <div class="w-full">
-      <a href="/about" aria-label="About" class="block">
-        <Navcards cardtitle="About" iconName="githubIcon" />
+
+      <a href="/about" class="block">
+        <Navcards cardtitle="About" iconName="aboutIcon" />
       </a>
-    </div>
-    <div class="w-full">
-      <a href="/blog" aria-label="Blog" class="block">
-        <Navcards cardtitle="Blog" iconName="githubIcon" />
+
+      <a href="/blog" class="block">
+        <Navcards cardtitle="Blog" iconName="blogIcon" />
       </a>
-    </div>
-    <div class="w-full">
-      <a href="/contact" aria-label="Contact" class="block">
-        <Navcards cardtitle="Contact" iconName="githubIcon" />
+
+      <a href="/contact" class="block">
+        <Navcards cardtitle="Contact" iconName="contactIcon" />
       </a>
-    </div>
   </div>
 </div>

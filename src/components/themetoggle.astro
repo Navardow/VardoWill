@@ -1,0 +1,48 @@
+<button
+    id="theme-toggle"
+    type="button"
+    class="size-12 p-0 border-0 cursor-pointer logo-wrap"
+>
+    <img src="/assets/onswitch.png" alt="Light mode icon" id="theme-toggle-light-icon" class="hidden"/>
+    <img src="/assets/offswitch.png" alt="Dark mode icon" id="theme-toggle-dark-icon" class="hidden"/>
+</button>
+
+<script is:inline>
+    function initThemeToggle() {
+        const btn = document.getElementById("theme-toggle");
+        const darkIcon = document.getElementById("theme-toggle-dark-icon");
+        const lightIcon = document.getElementById("theme-toggle-light-icon");
+        const darkLogo = document.getElementById("dark-logo");
+        const lightLogo = document.getElementById("light-logo");
+
+        if (!btn || !darkIcon || !lightIcon) return;
+
+        const setTheme = (theme) => {
+            document.documentElement.classList.toggle("dark", theme === "dark");
+            localStorage.setItem("theme", theme);
+
+            darkIcon.classList.toggle("hidden", theme !== "dark");
+            lightIcon.classList.toggle("hidden", theme === "dark");
+
+            if (darkLogo && lightLogo) {
+                lightLogo.classList.toggle("hidden", theme !== "dark");
+                darkLogo.classList.toggle("hidden", theme === "dark");
+            }
+        };
+
+        const stored = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)",
+        ).matches;
+        setTheme(stored ?? (prefersDark ? "dark" : "light"));
+
+        btn.onclick = () => {
+            const isDark = document.documentElement.classList.contains("dark");
+            setTheme(isDark ? "light" : "dark");
+        };
+    }
+
+    window.addEventListener("DOMContentLoaded", initThemeToggle);
+
+    document.addEventListener("astro:after-swap", initThemeToggle);
+</script>

@@ -4,16 +4,15 @@ import About from "../components/about.astro";
 import Nav from "../components/nav.astro";
 ---
 
-<Layout>
-  <section class="w-full md:w-1/2 flex items-center">
-    <div class="w-full bg-white/5 rounded-xl p-6 md:p-10 shadow-sm text-left">
+<Layout title="Home">
+  <div class="flex flex-col md:flex-row gap-12 h-full-[60vh] px-4 sm:px-6 lg:px-12 py-12 md:py-20">
+    <section class="flex-1">
       <About />
-    </div>
-  </section>
+    </section>
 
-  <section class="w-full md:w-1/2 flex items-center justify-center">
-    <div class="w-full max-w-md">
-      <Nav />
-    </div>
+  <section class="flex-1">
+    <Nav />
   </section>
+</div>
+
 </Layout>

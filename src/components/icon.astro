@@ -1,37 +1,27 @@
 ---
-import * as Icons from "../icons/index.ts";
+import * as Icons from "../icons";
 
 interface Props {
   name: keyof typeof Icons;
   size?: number | string;
-  color?: string;
   class?: string;
 }
 
-const {
-  name,
-  size = 40,
-  color = "currentColor",
-  class: cls = "",
-} = Astro.props as Props;
-
-const IconMarkup = (Icons as any)[name] as string | undefined;
-const sizeValue = typeof size === "number" ? `${size}px` : String(size);
+const { name, size = 40, class: cls = "" } = Astro.props;
+const IconMarkup = Icons[name];
+const sizeValue = typeof size === "number" ? `${size}px` : size;
 ---
-{IconMarkup ? (
+
+{IconMarkup && (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={sizeValue}
     height={sizeValue}
     viewBox="0 0 24 24"
-    fill="none"
-    stroke={color}              
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    fill="currentColor"
     class={cls}
     aria-hidden="true"
   >
     <g set:html={IconMarkup} />
   </svg>
-) : null}
+)}

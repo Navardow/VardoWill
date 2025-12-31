@@ -1,11 +1,20 @@
 ---
-import Nav from "./nav.svelte";
-
+import ThemeToggle from "./themetoggle.astro";
 ---
-<header class="bg-gray-800 text-white p-4">
-  <div class="container mx-auto flex justify-center items-center">
-    <nav>
-        <a href="/" class="text-lg font-bold">Vardo</a>
-    </nav>
-  </div>
+
+<header class="bg-bg text-text py-5">
+  <nav class="mx-auto max-w-screen-xl flex items-center justify-between px-4 sm:px-6">
+    <a href="/" class="flex items-center logo-wrap">
+      <span class="logo-icon">
+          <img id="dark-logo" src="/assets/icon8vblack.png" alt="Logo" class="h-16 w-auto hidden"/>
+          <img id="light-logo" src="/assets/icon8vwhite.png" alt="Logo" class="h-16 w-auto"/>
+      </span>
+      <span class="-ml-2 text-xl sm:text-2xl">
+        ardo
+      </span>
+    </a>
+
+    <ThemeToggle />
+  </nav>
 </header>
+
