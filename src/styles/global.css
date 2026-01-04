@@ -61,6 +61,7 @@
   .card-wrapper {
     position: relative;
     perspective: 1000px;
+    transform-style: preserve-3d;
   }
 
   /* Back card */
@@ -87,25 +88,36 @@
     padding: 1.5rem;
     background-color: rgb(var(--color-secondary));
     color: rgb(var(--color-text));
+    transform-style: preserve-3d;
     transition:
       transform 280ms ease,
       background-color 280ms ease;
   }
 
   /* Hover interaction */
-  .card-wrapper:hover .card {
-    transform: translate(-10px, -10px) scale(1.02);
-    background-color: rgb(var(--color-primary));
-  }
+   @media (hover: hover) and (pointer: fine) {
+       .card-wrapper:hover .card {
+        transform: translate(-10px, -10px) scale(1.02);
+        background-color: rgb(var(--color-primary));
+      }
 
-  .card-wrapper:hover::after {
-    transform: translate(10px, 10px) scale(0.96);
-    opacity: 1;
+      .card-wrapper:hover::after {
+        transform: translate(10px, 10px) scale(0.96);
+        opacity: 1;
+      }
   }
 
   /* Touch */
-  .card:active {
-    transform: translate(-6px, -6px) scale(0.98);
+  @media (hover: none) and (pointer: coarse) {
+     .card-wrapper:active .card {
+        transform: scale(1.03);
+        background-color: rgb(var(--color-primary));
+      }
+
+      .card-wrapper:active::after {
+        transform: scale(0.97);
+        opacity: 1;
+      } 
   }
 
   /* Accessibility */
