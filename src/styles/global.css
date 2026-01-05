@@ -159,5 +159,10 @@
     backdrop-filter: blur(10px);
     z-index: 50;
     opacity: 0.97;
+    transition: transform 0.4s ease;
+  }
+
+  .app-header.hidden {
+    transform: translateY(-100%)
   }
 }

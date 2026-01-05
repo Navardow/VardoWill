@@ -21,25 +21,24 @@ import ThemeToggle from "./themetoggle.astro";
 <!-- Im condidering rewriting with JS MutationObserve -->
 <script is:inline>
 
-  const toggleHeader = () => {  
-    
+ const toggleHeader = () => {
     const header = document.getElementById("app-header");
 
     if (!header) return;
-    
-    let lastScrollY = 0;
-    const scrolltop = window.pageYOffset;
-    header.style.transition = "transform .4s ease";
 
-    (scrolltop > lastScrollY || document.body.scrollTop > 50) ? 
-    header.style.transform = "translateY(-100%)" : 
-    header.style.transform = "translateY(0)";
-
-    lastScrollY = scrolltop;
-
-  }
+    const scrollTop = window.scrollY
+    header.classList.toggle(
+      "hidden",
+    scrollTop > 10
+  );
   
-  window.addEventListener("scroll", toggleHeader);
-  document.addEventListener("astro:after-swap", toggleHeader);
+  window.addEventListener("scroll", toggleHeader)
+    
+  }
+ 
+
+  // window.addEventListener("scroll", toggleHeader);
+  // document.addEventListener("astro:after-swap", toggleHeader);
+
 
 </script>
