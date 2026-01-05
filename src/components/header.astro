@@ -29,7 +29,7 @@ import ThemeToggle from "./themetoggle.astro";
     
     let lastScrollY = 0;
     const scrolltop = window.pageYOffset;
-    header.style.transition = "all .4s ease";
+    header.style.transition = "transform .4s ease";
 
     (scrolltop > lastScrollY || document.body.scrollTop > 50) ? 
     header.style.transform = "translateY(-100%)" : 
