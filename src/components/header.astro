@@ -2,8 +2,8 @@
 import ThemeToggle from "./themetoggle.astro";
 ---
 
-<header class="bg-bg text-text py-5">
-  <nav class="mx-auto max-w-screen-xl flex items-center justify-between px-4 sm:px-6">
+<header class="app-header" id="app-header">
+  <nav class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 sm:pl-6 md:pr-2">
     <a href="/" class="flex items-center logo-wrap">
       <span class="logo-icon">
           <img id="dark-logo" src="/assets/icon8vblack.png" alt="Logo" class="h-16 w-auto hidden"/>
@@ -18,3 +18,28 @@ import ThemeToggle from "./themetoggle.astro";
   </nav>
 </header>
 
+<!-- Im condidering rewriting with JS MutationObserve -->
+<script is:inline>
+
+  const toggleHeader = () => {  
+    
+    const header = document.getElementById("app-header");
+
+    if (!header) return;
+    
+    let lastScrollY = 0;
+    const scrolltop = window.pageYOffset;
+    header.style.transition = "all .4s ease";
+
+    (scrolltop > lastScrollY || document.body.scrollTop > 50) ? 
+    header.style.transform = "translateY(-100%)" : 
+    header.style.transform = "translateY(0)";
+
+    lastScrollY = scrolltop;
+
+  }
+  
+  window.addEventListener("scroll", toggleHeader);
+  document.addEventListener("astro:after-swap", toggleHeader);
+
+</script>

@@ -30,6 +30,12 @@
     --font-sans: var(--font-mono);
   }
 
+  html body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+  }
+
   html {
     color-scheme: light dark;
     font-family: var(--font-sans);
@@ -140,5 +146,18 @@
   .logo-icon {
     position: relative;
     transform: translate(1rem, 0.5rem);
+  }
+
+  /* --header/navigation bar */
+  .app-header {
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+    box-shadow: var(--shadow-card);
+    padding: 0.5rem 0;
+    position: sticky;
+    top: 0;
+    backdrop-filter: blur(10px);
+    z-index: 50;
+    opacity: 0.97;
   }
 }
