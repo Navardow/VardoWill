@@ -9,7 +9,7 @@ interface Props {
 const { cardtitle, iconName } = Astro.props as Props;
 ---
 <div class="card-wrapper">
-  <div class="card flex flex-col items-center text-center h-full w-full">
+  <div class="card grid grid-col-1 place-items-center">
     <Icon name={iconName} size={48} />
     <h2 class="mt-4 text-xl">
       {cardtitle}
