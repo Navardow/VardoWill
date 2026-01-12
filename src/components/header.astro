@@ -3,43 +3,77 @@ import ThemeToggle from "./themetoggle.astro";
 ---
 
 <header class="app-header" id="app-header">
-  <nav class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 sm:pl-6 md:pr-2">
-    <a href="/" class="flex items-center logo-wrap">
+  <nav
+    class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 md:pr-2"
+  >
+  <button class="md:hidden" id="ham-btn">
+    ----<br>----<br>----
+  </button>
+    <a href="/" class="flex items-center logo-wrap" id="logo-wrapper">
       <span class="logo-icon">
-          <img id="dark-logo" src="/assets/icon8vblack.png" alt="Logo" class="h-16 w-auto hidden"/>
-          <img id="light-logo" src="/assets/icon8vwhite.png" alt="Logo" class="h-16 w-auto"/>
+        <img
+          id="dark-logo"
+          src="/assets/icon8vblack.png"
+          alt="Logo"
+          class="h-16 w-auto hidden"
+        />
+        <img
+          id="light-logo"
+          src="/assets/icon8vwhite.png"
+          alt="Logo"
+          class="h-16 w-auto"
+        />
       </span>
-      <span class="-ml-2 text-xl sm:text-2xl">
-        ardo
-      </span>
+      <span class="-ml-2 text-xl sm:text-2xl"> ardo </span>
     </a>
+    
+    <ul class="mobile-nav" id="mobile-nav">
+      <li><a href="/">Home</a></li>
+      <li>
+        <a href="/projects">Projects</a>
+      </li>
+      <li>
+        <a href="/about">About</a>
+      </li>
+      <li>
+        <a href="/blog">Blog</a>
+      </li>
+      <li>
+        <a href="/contact">Contact</a>
+      </li>
+      <button id="close-menu-btn">
+        X
+      </button>
+    </ul>
 
     <ThemeToggle />
   </nav>
 </header>
 
-<!-- Im condidering rewriting with JS MutationObserve -->
 <script is:inline>
-
-  const toggleHeader = () => {  
-    
-    const header = document.getElementById("app-header");
-
-    if (!header) return;
-    
-    let lastScrollY = 0;
-    const scrolltop = window.pageYOffset;
-    header.style.transition = "transform .4s ease";
-
-    (scrolltop > lastScrollY || document.body.scrollTop > 50) ? 
-    header.style.transform = "translateY(-100%)" : 
-    header.style.transform = "translateY(0)";
-
-    lastScrollY = scrolltop;
-
-  }
   
-  window.addEventListener("scroll", toggleHeader);
-  document.addEventListener("astro:after-swap", toggleHeader);
+  
+
+  const setUp = () => {
+
+    const hamMenuBtn = "ham-btn", cmBtn = "close-menu-btn", mobNav = "mobile-nav";
+    
+    const navMenu = document.getElementById(mobNav);
+    const hamBtn = document.getElementById(hamMenuBtn);
+
+    if (!navMenu || !hamBtn) return;
+
+    hamBtn.removeEventListener("click", () => {
+      navMenu?.classList.remove("is-active");
+    })
+
+    hamBtn.addEventListener("click", () => {
+        navMenu?.classList.toggle("is-active");
+    })
+  }
+
+  window.addEventListener("DOMContentLoaded", setUp)
+  document.addEventListener("astro:after-swap", setUp);
 
 </script>
+

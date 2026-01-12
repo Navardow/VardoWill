@@ -34,6 +34,7 @@
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    height: 100vh;
   }
 
   html {
@@ -115,15 +116,9 @@
 
   /* Touch */
   @media (hover: none) and (pointer: coarse) {
-     .card-wrapper:active .card {
-        transform: scale(1.03);
-        background-color: rgb(var(--color-primary));
-      }
-
-      .card-wrapper:active::after {
-        transform: scale(0.97);
-        opacity: 1;
-      } 
+    .logo-icon:active .mobile-nav{
+      visibility: visible;
+    }
   }
 
   /* Accessibility */
@@ -160,4 +155,29 @@
     z-index: 50;
     opacity: 0.97;
   }
+
+  /* ---mobile navigation menu */
+
+  .mobile-nav {
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    width: 60vw;
+    display: grid;
+    place-items: center;
+    background-color: rgb(var(--color-secondary));
+    color: rgb(var(--color-text));
+    z-index: 50;
+    transform: translateX(-100%);
+    transition: transform 300ms ease;
+    visibility: visible;
+  }
+
+  .mobile-nav.is-active {
+    transform: translateX(0%);
+  }
+
+
+
+
 }
