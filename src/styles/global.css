@@ -60,6 +60,7 @@
     background-color: rgb(var(--color-bg));
     color: rgb(var(--color-text));
   }
+  
 
   /* 
     DO NOT TOUCH CARD STYLES, IT WORKS FINE LEAVE IT ALONE!!!!!!!
@@ -70,7 +71,6 @@
     perspective: 1000px;
     transform-style: preserve-3d;
   }
-
   /* Back card */
   .card-wrapper::after {
     content: "";
@@ -86,7 +86,6 @@
       opacity 280ms ease;
     z-index: 0;
   }
-
   /* Front card */
   .card {
     position: relative;
@@ -100,7 +99,6 @@
       transform 280ms ease,
       background-color 280ms ease;
   }
-
   /* Hover interaction */
    @media (hover: hover) and (pointer: fine) {
        .card-wrapper:hover .card {
@@ -114,18 +112,6 @@
       }
   }
 
-  /* Touch */
-  @media (hover: none) and (pointer: coarse) {
-    .logo-icon:active .mobile-nav{
-      visibility: visible;
-    }
-  }
-
-  /* Accessibility */
-  .card:focus-visible {
-    outline: 2px solid rgb(var(--color-accent));
-    outline-offset: 4px;
-  }
 
   /* --logo-- */
   .logo-wrap {
@@ -133,15 +119,14 @@
     transform: translateX(-1.5rem);
     transition: transform 200ms ease;
   }
-
   .logo-wrap:hover {
     transform: translateX(-1.5rem) translateY(-0.125rem) scale(1.02);
   }
-
   .logo-icon {
     position: relative;
     transform: translate(1rem, 0.5rem);
   }
+
 
   /* --header/navigation bar */
   .app-header {
@@ -156,28 +141,66 @@
     opacity: 0.97;
   }
 
-  /* ---mobile navigation menu */
 
+  /* ---mobile navigation menu--- */
   .mobile-nav {
-    position: absolute;
+    position: fixed;
     inset: 0;
     height: 100vh;
-    width: 60vw;
-    display: grid;
-    place-items: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
     background-color: rgb(var(--color-secondary));
     color: rgb(var(--color-text));
-    z-index: 50;
     transform: translateX(-100%);
-    transition: transform 300ms ease;
-    visibility: visible;
+    transition: .3s ease;
   }
-
   .mobile-nav.is-active {
-    transform: translateX(0%);
+    transform: translateX(-10%);
+    z-index: 1;
   }
 
 
+  /* ---hamburger menu--- */
+  .ham-menu {
+    height: 50px;
+    width: 40px;
+    position: relative;
+  }
+  .ham-menu span {
+    height: 5px;
+    width: 100%;
+    background-color: rgb(var(--color-text));
+    border-radius: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: .3s ease;
+    z-index: 2;
+  }
+  .ham-menu span:nth-child(1) {
+    top: 25%;
+  }
+  .ham-menu span:nth-child(3) {
+    top: 75%;
+  }
+  .ham-menu.is-active span:nth-child(1) {
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .ham-menu.is-active span:nth-child(2) {
+    opacity: 0;
+  }
+  .ham-menu.is-active span:nth-child(3) {
+    top: 50%;
+    transform: translate(-50%, 50%) rotate(-45deg);
+  }
 
+  /* --- --- */
 
 }

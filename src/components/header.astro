@@ -3,47 +3,28 @@ import ThemeToggle from "./themetoggle.astro";
 ---
 
 <header class="app-header" id="app-header">
-  <nav
-    class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 md:pr-2"
-  >
-  <button class="md:hidden" id="ham-btn">
-    ----<br>----<br>----
-  </button>
+  <nav class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 md:pr-2">
+
+    <div class="ham-menu md:hidden" id="ham-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
     <a href="/" class="flex items-center logo-wrap" id="logo-wrapper">
-      <span class="logo-icon">
-        <img
-          id="dark-logo"
-          src="/assets/icon8vblack.png"
-          alt="Logo"
-          class="h-16 w-auto hidden"
-        />
-        <img
-          id="light-logo"
-          src="/assets/icon8vwhite.png"
-          alt="Logo"
-          class="h-16 w-auto"
-        />
-      </span>
-      <span class="-ml-2 text-xl sm:text-2xl"> ardo </span>
+      <div class="logo-icon">
+        <img id="dark-logo" src="/assets/icon8vblack.png" alt="Logo" class="h-16 w-auto hidden"/>
+        <img id="light-logo" src="/assets/icon8vwhite.png" alt="Logo" class="h-16 w-auto"/>
+      </div>
+      <div class="-ml-2 text-xl sm:text-2xl"> ardo </div>
     </a>
-    
+
     <ul class="mobile-nav" id="mobile-nav">
       <li><a href="/">Home</a></li>
-      <li>
-        <a href="/projects">Projects</a>
-      </li>
-      <li>
-        <a href="/about">About</a>
-      </li>
-      <li>
-        <a href="/blog">Blog</a>
-      </li>
-      <li>
-        <a href="/contact">Contact</a>
-      </li>
-      <button id="close-menu-btn">
-        X
-      </button>
+      <li><a href="/projects">Projects</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
     </ul>
 
     <ThemeToggle />
@@ -51,12 +32,9 @@ import ThemeToggle from "./themetoggle.astro";
 </header>
 
 <script is:inline>
-  
-  
-
   const setUp = () => {
 
-    const hamMenuBtn = "ham-btn", cmBtn = "close-menu-btn", mobNav = "mobile-nav";
+    const hamMenuBtn = "ham-menu", cmBtn = "close-menu-btn", mobNav = "mobile-nav";
     
     const navMenu = document.getElementById(mobNav);
     const hamBtn = document.getElementById(hamMenuBtn);
@@ -65,10 +43,12 @@ import ThemeToggle from "./themetoggle.astro";
 
     hamBtn.removeEventListener("click", () => {
       navMenu?.classList.remove("is-active");
+      hamBtn?.classList.remove("is-active");
     })
 
     hamBtn.addEventListener("click", () => {
         navMenu?.classList.toggle("is-active");
+        hamBtn?.classList.toggle("is-active");
     })
   }
 
