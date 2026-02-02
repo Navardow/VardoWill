@@ -3,6 +3,7 @@ import { db, Projects } from 'astro:db';
 // https://astro.build/db/seed
 export default async function seed() {
     // TODO
+    console.log("seeding development data...");
     if (!import.meta.env.PROD) {
         await db.insert(Projects).values([
             {
@@ -29,8 +30,11 @@ export default async function seed() {
                 documentation: "somefile",
                 tags: ["bash", "linux", "tmux", "git"],
                 image: "/src/assets/placeholder.png",
-                featured: true,
+                featured: false,
             },
         ])
+    }
+    else {
+        return process.exit(0);
     }
 }
