@@ -1,14 +1,17 @@
 {
-    "owner": "Navardo Williams",
-    "sitename": "vardo's portfolio",
-    "description": "Personal website of Navardo Williams",
-    "introduction": {
-        "greeting": "Hello Hello, Welcome!",
-        "message": "This is the official online repository of Navardo Williams (me, obviously), featuring my work, interests, thoughts, and personal goals. feel free to explore and take a look around.\nMy contact information is available for any inquiries one may have. If our paths cross and my work is of any interest to you, I plan on documenting my journey as best I can on this site.\nThank you for stopping by — I hope it was worth your time!!"
+    "Author": "Navardo Williams",
+    "Sitename": "vardo's portfolio",
+    "Site-description": "Personal website of Navardo Williams",
+    "Introduction": {
+        "Greeting": "Hello Hello, Welcome!",
+        "Message": "This is the official online repository of Navardo Williams (me, obviously), featuring my work, interests, thoughts, and personal goals. feel free to explore and take a look around.\nMy contact information is available for any inquiries one may have. If our paths cross and my work is of any interest to you, I plan on documenting my journey as best I can on this site.\nThank you for stopping by — I hope it was worth your time!!"
     },
-    "contacts": {
-        "email": "Navardowilliamsrei@gmail.com",
-        "phone": "347-904-3872",
-        "github": "https://github.com/Navardow"
+    "Contact-Information": {
+        "Email": "Navardowilliamsrei@gmail.com",
+        "Phone": "347-904-3872",
+        "Github": "https://github.com/Navardow",
+        "Linkedin": "https://www.linkedin.com/in/navardo-williams-00b670272",
+        "Instagram": "https://www.instagram.com",
+        "X": "https://www.x.com"
     }
 }

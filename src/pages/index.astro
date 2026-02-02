@@ -2,14 +2,41 @@
 import Layout from "../layouts/Layout.astro";
 import About from "../components/about.astro";
 import Nav from "../components/nav.astro";
+import Featured from "../components/featured.astro";
 ---
 
 <Layout title="Home">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-10 lg:px-12">
-    <section>
-      <About />
-    </section>
-    <Nav />
-  </div>
-
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 md:px-10 lg:px-12 mb-4 md:mb-8 lg:mb-12"
+    >
+        <section>
+            <About />
+        </section>
+        <div class="hidden md:block">
+            <Nav />
+        </div>
+    </div>
+    <Featured />
 </Layout>
+
+<script is:inline>
+    const setUp = () => {
+        const mobileNavMenu = document.getElementById("mobile-nav-wrapper");
+        const hamMenuBtn = document.getElementById("ham-btn");
+
+        if (!mobileNavMenu || !hamMenuBtn) return;
+
+        hamMenuBtn.removeEventListener("click", () => {
+            mobileNavMenu?.classList.remove("is-active");
+            hamMenuBtn?.classList.remove("is-active");
+        });
+
+        hamMenuBtn.addEventListener("click", () => {
+            mobileNavMenu?.classList.toggle("is-active");
+            hamMenuBtn?.classList.toggle("is-active");
+        });
+    };
+
+    window.addEventListener("DOMContentLoaded", setUp);
+    document.addEventListener("astro:after-swap", setUp);
+</script>

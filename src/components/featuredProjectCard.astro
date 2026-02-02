@@ -1,0 +1,39 @@
+---
+interface props {
+    title: string;
+    summary?: string;
+    imageSrc?: string;
+    tags?: Array<string>;
+}
+
+const { title, tags, summary, imageSrc} = Astro.props as props;
+---
+
+<!--
+TO DO
+implement tags html code and style
+
+-->
+
+<div class="featured-card">
+    <img
+        src={imageSrc}
+        alt=""
+        class="object-fill w-full h-full"
+    />
+    <div class="featured-card__before">
+        <p class="featured-card-before__title text-white">{title}</p>
+        <ul class="tag-list">
+            {
+            tags?.map((tag) => {
+                return <li class="tags"> { tag } </li>
+            })
+            }
+        </ul>
+    </div>
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="featured-card__content">
+        <p class="featured-card__title">{title}</p>
+        <p class="featured-card__description">{summary}</p>
+    </div>
+</div>

@@ -1,59 +1,45 @@
 ---
 import ThemeToggle from "./themetoggle.astro";
+import Nav from "./nav.astro";
 ---
 
 <header class="app-header" id="app-header">
-  <nav class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 md:pr-2">
+    <nav
+        class="mx-auto max-w-screen-xl flex items-center justify-between pl-4 md:pr-2"
+    >
+        <div class="ham-menu md:hidden" id="ham-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
 
-    <div class="ham-menu md:hidden" id="ham-menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+        <a href="/" class="flex items-center logo-wrap" id="logo-wrapper">
+            <div class="logo-icon">
+                <img
+                    id="dark-logo"
+                    src="/assets/icon8vblack.png"
+                    alt="Logo"
+                    class="h-16 w-auto hidden"
+                />
+                <img
+                    id="light-logo"
+                    src="/assets/icon8vwhite.png"
+                    alt="Logo"
+                    class="h-16 w-auto"
+                />
+            </div>
+            <div class="-ml-2 text-xl sm:text-2xl">ardo</div>
+        </a>
 
-    <a href="/" class="flex items-center logo-wrap" id="logo-wrapper">
-      <div class="logo-icon">
-        <img id="dark-logo" src="/assets/icon8vblack.png" alt="Logo" class="h-16 w-auto hidden"/>
-        <img id="light-logo" src="/assets/icon8vwhite.png" alt="Logo" class="h-16 w-auto"/>
-      </div>
-      <div class="-ml-2 text-xl sm:text-2xl"> ardo </div>
-    </a>
+        <div
+            class="mobile-nav-wrapper"
+            id="mobile-nav-wrapper"
+        >
+            <div class="mobile-nav">
+                <Nav />
+            </div>
+        </div>
 
-    <ul class="mobile-nav" id="mobile-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-
-    <ThemeToggle />
-  </nav>
+        <ThemeToggle />
+    </nav>
 </header>
-
-<script is:inline>
-  const setUp = () => {
-
-    const hamMenuBtn = "ham-menu", cmBtn = "close-menu-btn", mobNav = "mobile-nav";
-    
-    const navMenu = document.getElementById(mobNav);
-    const hamBtn = document.getElementById(hamMenuBtn);
-
-    if (!navMenu || !hamBtn) return;
-
-    hamBtn.removeEventListener("click", () => {
-      navMenu?.classList.remove("is-active");
-      hamBtn?.classList.remove("is-active");
-    })
-
-    hamBtn.addEventListener("click", () => {
-        navMenu?.classList.toggle("is-active");
-        hamBtn?.classList.toggle("is-active");
-    })
-  }
-
-  window.addEventListener("DOMContentLoaded", setUp)
-  document.addEventListener("astro:after-swap", setUp);
-
-</script>
-

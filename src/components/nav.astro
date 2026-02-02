@@ -1,21 +1,24 @@
 ---
-im on series :
 import Navcards from "./navcards.astro";
 ---
-<div class="hidden md:grid grid-cols-2 gap-4 h-full content-center py-5">
-    <a href="/projects" class="block">
-      <Navcards cardtitle="Projects" iconName="folderIcon"/>
+
+<div
+    id="nav-menu"
+    class="flex flex-col w-70 md:w-auto md:grid grid-cols-2 gap-4 place-content-center py-5"
+>
+    <a href="/projectsPage" class="block">
+        <Navcards cardtitle="Projects" iconName="folderIcon" />
     </a>
 
-    <a href="/about" class="block">
-      <Navcards cardtitle="About" iconName="aboutIcon"/>
+    <a href="/aboutPage" class="block">
+        <Navcards cardtitle="About" iconName="aboutIcon" />
     </a>
 
-    <a href="/blog" class="block">
-      <Navcards cardtitle="Blog" iconName="blogIcon"/>
+    <a href="/blogPage" class="block">
+        <Navcards cardtitle="Blog" iconName="blogIcon" />
     </a>
 
-    <a href="/contact" class="block">
-      <Navcards cardtitle="Contact" iconName="contactIcon"/>
+    <a href="/contactPage" class="block">
+        <Navcards cardtitle="Contact" iconName="contactIcon" />
     </a>
 </div>

@@ -9,10 +9,10 @@ interface Props {
 const { cardtitle, iconName } = Astro.props as Props;
 ---
 <div class="card-wrapper">
-  <div class="card grid grid-col-1 place-items-center">
+    <div class="card grid grid-col-1 place-items-center">
     <Icon name={iconName} size={48} />
     <h2 class="mt-4 text-xl">
       {cardtitle}
     </h2>
-  </div>  
+  </div>
 </div>

@@ -1,0 +1,26 @@
+---
+import FeaturedProject from "./featuredProjectCard.astro"
+import { db, Projects, eq } from "astro:db";
+
+const featuredProjects = await db
+    .select()
+    .from(Projects)
+    .where(eq(Projects.featured, true));
+
+---
+<div class="px-4 md:px-10 lg:px-12">
+    <section>
+        <h1 class="mb-4 font-medium text-2xl italic">Featured Work - </h1>
+        <div class="flex justify-center gap-12 flex-wrap px-4 md:px-10 lg:px-12">
+            {
+            featuredProjects.map(({ title, summary, image, tags}) => {
+                return <FeaturedProject
+                                title={title}
+                                summary={summary}
+                                imageSrc={image}
+                                tags={tags}/>
+                })
+            }
+        </div>
+    </section>
+</div>
